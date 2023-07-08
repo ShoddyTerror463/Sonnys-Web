@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STMZ Landing Page</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <h2 class="title">Welcome to the STMZ Market Place</h2>
+    <div class="con">
+        <img src="thunder.jpg" alt="Thunder" class="thunder">
+        <img src="thun2.jpg" alt="Thunder" class="thunder">
+        <img src="thun3.jpg" alt="Thunder" class="thunder">
+        <img src="thun.jpg" alt="Thunder" class="thunder">
+    </div>
+    <div class="money">£10 per item</div>
+    <h2 class="bottom">At STMZ we make clothing as good as luxury but at the price of ordinary at our specially made labs we are the definition of affordable & breathable & expert clothing and wear</h2>
+    <button onclick="showSignUpArea()" class="button">Sign Up</button><h3 >~After you click the button remember to scroll down~</h3>
+    <button onclick="displayUserInfo()">Toggle User Info</button>
+
+    <div class="signup-area" id="signupArea">
+        <h2>Create an Account</h2>
+        <form>
+            <input type="text" id="nameInput" placeholder="Name">
+            <input type="email" id="emailInput" placeholder="Email">
+            <input type="password" id="passwordInput" placeholder="Password" onkeyup="checkPasswordStrength()">
+            <div id="passwordStrength"></div>
+            <button type="button" onclick="displayUserInfo()">Submit</button>
+        </form>
+    </div>
+
+    <div class="user-info" id="userInfoArea">
+        <h2>User Information</h2>
+        <p><strong>Name:</strong> <span id="nameDisplay"></span></p>
+        <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+        <p><strong>Password:</strong> <span id="passwordDisplay"></span></p>
+    </div>
+
+    <div class="popup-container" id="cookiePopup">
+        <h3>Cookie Consent</h3>
+        <p>This website uses cookies to ensure you get the best experience. By using our site, you acknowledge that you have read and understand our <a href="cookies.mdm">Cookie Policy</a>.</p>
+        <button onclick="hideCookiePopup()">Accept</button>
+    </div>
+    <script>
+        console.log('HTMLBodyElement')
+
+        function logButtonClick() {
+            console.log("Button clicked!");
+        }
+
+        function showSignUpArea() {
+            var signupArea = document.getElementById("signupArea");
+            signupArea.style.display = "block";
+        }
+
+        function displayUserInfo() {
+            var name = document.getElementById("nameInput").value;
+            var email = document.getElementById("emailInput").value;
+            var password = document.getElementById("passwordInput").value;
+
+            document.getElementById("nameDisplay").textContent = name;
+            document.getElementById("emailDisplay").textContent = email;
+            document.getElementById("passwordDisplay").textContent = password;
+
+            var userInfoArea = document.getElementById("userInfoArea");
+            userInfoArea.style.display = "block";
+        }
+
+        function checkPasswordStrength() {
+            var password = document.getElementById("passwordInput").value;
+            var passwordStrength = document.getElementById("passwordStrength");
+
+            // Reset password strength indicator
+            passwordStrength.innerHTML = "";
+
+            if (password.length === 0) {
+                return;
+            }
+
+            if (password.length < 6) {
+                passwordStrength.innerHTML = "Weak";
+                passwordStrength.style.color = "red";
+            } else if (password.length < 10) {
+                passwordStrength.innerHTML = "Strong";
+                passwordStrength.style.color = "orange";
+            } else {
+                passwordStrength.innerHTML = "Strongest";
+                passwordStrength.style.color = "green";
+            }
+        }
+
+        function hideCookiePopup() {
+            var cookiePopup = document.getElementById("cookiePopup");
+            cookiePopup.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+<style>
+
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-image: url(background.jpg);
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(45, 49, 50);
+        border-radius: 20px;
+        width: 500px;
+        color: rgb(204, 204, 7);
+    }
+
+    .thunder {
+        width: 300px;
+        height: auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+    }
+
+    .con {
+        display: flex;
+        background-image: url('layer.jpg');
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+        border: 15px solid rgb(57, 57, 57);
+        border-radius: 20px;
+        justify-content: space-around;
+    }
+
+    .thunder:hover {
+        background-color: aqua ;
+    }
+
+    /* Styles for the navigation bar */
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+      
+      /* Style for the navigation links */
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      /* Change the color of the navigation links when hovered */
+      .navbar a:hover {
+        background-color: #5fd6ebb9;
+        color: black;
+        border-radius: 20px;
+      }
+
+      .buy {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+        background-color: rgb(198, 134, 178);
+      }
+
+      .bottom {
+        color: rgb(255, 255, 255);
+        background-color: #34e54065;
+        border-radius: 10px;
+      }
+      
+      .money {
+        background-image: url(background.jpg);
+        filter: invert();
+        border:5px solid grey;
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .money:hover {
+        filter: invert(100%);
+      }
+
+      .thunder:hover {
+        filter: invert(100%);
+        text-shadow: red 20px;
+      }
+
+      .thunder:active{
+        filter: hue-rotate(500px);
+      }
+
+          /* Styles for the account sign-up area */
+    .signup-area {
+        display: none; /* Hide the sign-up area by default */
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+      
+      /* Styles for the form elements */
+      .signup-area input[type="text"],
+      .signup-area input[type="email"],
+      .signup-area input[type="password"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+      }
+      
+      .signup-area button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .button {
+        width: 200px;
+        height: 100pxpx;
+        justify-content: center;
+        background-image: url(background.jpg);
+        filter: grayscale(100%);
+        border: 5px solid gray;
+      }
+
+      .popup-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 300px;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-container h3 {
+        margin-top: 0;
+    }
+
+    .popup-container p {
+        margin-bottom: 20px;
+    }
+
+    .popup-container button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+
+</style>
